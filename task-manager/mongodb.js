@@ -34,9 +34,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: 
         description: "Clean the house"
     }).then(() => {
         
-    }).catch(() => {
-        
-    })
+    }).catch(() => {})
 
 
 
