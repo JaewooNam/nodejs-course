@@ -24,9 +24,18 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: 
             name: 'Mike'
         }
     }).then((result) => {
-        
+
     }).catch((error) => {
 
+    })
+
+
+    db.collection('tasks').deleteOne({
+        description: "Clean the house"
+    }).then(() => {
+        
+    }).catch(() => {
+        
     })
 
 
