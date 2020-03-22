@@ -1,9 +1,9 @@
 // CRUD Operation
 
+
 // const mongodb = require('mongodb')
 // const MongoClient = mongodb.MongoClient
 // const ObjectID = mongodb.ObjectID
-
 const { MongoClient, ObjectID } = require('mongodb')
 
 const connectionURL = 'mongodb://127.0.0.1:27017'
@@ -16,9 +16,36 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: 
 
     // get specific db
     const db = client.db(databaseName)
-    
+
+    db.collection('users').updateOne({
+        _id: new ObjectID("")
+    }, {
+        $set: {
+            name: 'Mike'
+        }
+    }).then((result) => {
+        
+    }).catch((error) => {
+
+    })
 
 
+
+    // db.collection('users').findOne({ _id: new ObjectID("5e75cfc78ce5e937f35692d8") }, (error, user) => {
+    //     if (error) {
+    //         return console.log('Unable to fetch')
+    //     }
+
+    //     console.log(user)
+    // })
+
+    // db.collection('users').find({ age: 32 }).toArray((error, users) => {
+    //     console.log(users)
+    // })
+
+    // db.collection('users').find({ age: 32 }).count((error, count) => {
+    //     console.log(count)
+    // })
 
     // async
     // db.collection('users').insertOne({
@@ -66,4 +93,5 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: 
     //         return console.log('Unable to insert')
     //     }
     // })
+
 })
